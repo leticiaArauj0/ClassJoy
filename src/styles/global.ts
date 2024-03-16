@@ -9,9 +9,6 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         -webkit-font-smoothing: antialiased;
-
         font-family: 'Open Sans', sans-serif;
-        font-weight: 400;
-        font-size: 1rem;
     }
 `

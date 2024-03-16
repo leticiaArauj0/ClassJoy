@@ -1,38 +1,68 @@
-import { NavLink } from 'react-router-dom'
-import { RegisterButton } from '../../components/InButton'
-import { ContainerForgotPassword, FormContainer } from './styles'
-import { ArrowLeft } from 'phosphor-react'
-import { AsideWelcome } from '../../components/AsideWelcome'
+import { Container } from '../../shared/styles/Container'
+import { Aside } from '../../components/Aside'
+import { Arrow } from '../../components/Arrow'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Inputs/Input'
+import { ContainerForm } from '../../shared/styles/ContainerForm'
+import { Main } from '../../shared/styles/Main'
+import { forgotFormValidationSchema } from '../../shared/validation/schemas/forgotFormValidationSchema'
+import * as zod from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { ErrorMenssage } from '../../components/ErrorMenssage'
+import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
+
+type FormForgot = zod.infer<typeof forgotFormValidationSchema>
 
 export function ForgetPassword() {
+  const { register, handleSubmit, formState } = useForm<FormForgot>({
+    resolver: zodResolver(forgotFormValidationSchema),
+  })
+
+  const emailError = formState.errors.email?.message
+
+  function handleResetPassword(data: FormForgot) {
+    console.log(data)
+  }
+
   return (
-    <ContainerForgotPassword>
-      <AsideWelcome
-        imgUrl="src\assets\boy-studying.svg"
-        text="Otimize suas atividades  diversificando as abordagens"
+    <Container>
+      <Aside
+        imgSrc="src\assets\aside-student.svg"
+        text="Otimize suas atividades diversificando as abordagens"
       />
 
-      <div className="container">
-        <div className="arrow-left">
-          <NavLink to="/">
-            <ArrowLeft size={32} />
-          </NavLink>
-        </div>
-        <main>
+      <div>
+        <Arrow navLink="/login" />
+        <Main>
           <img className="logo" src="src\assets\logo-classjoy.svg" alt="" />
           <h1>Esqueci minha senha</h1>
-          <form action="">
-            <FormContainer>
-              <span>
+          <form onSubmit={handleSubmit(handleResetPassword)} action="">
+            <ContainerForm>
+              <span className="text-forgot">
                 Será encaminhado para seu e-mail um link para recuperação da sua
                 senha
               </span>
-              <input id="email" type="email" placeholder="E-mail" />
-            </FormContainer>
-            <RegisterButton text="Recuperar Senha" />
+              <ContainerInputError margin="0.5rem">
+                <Input
+                  placeholder="Email"
+                  icon="email"
+                  outlineColor={emailError ? '#fc6647' : '#966BF2'}
+                  borderColor={emailError ? '#fc6647' : 'transparent'}
+                  registerProps={register('email')}
+                />
+                <ErrorMenssage menssage={emailError} />
+              </ContainerInputError>
+              <Button
+                text="Recuperar Senha"
+                color="#77BF0B"
+                height="2.3rem"
+                width="11rem"
+              />
+            </ContainerForm>
           </form>
-        </main>
+        </Main>
       </div>
-    </ContainerForgotPassword>
+    </Container>
   )
 }
