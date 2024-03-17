@@ -31,7 +31,7 @@ export function DashboardTeacher() {
             <span>Códigos</span>
           </ContainerInfo>
 
-          <ContainerCardClassroom height="calc(100vh - 20rem)">
+          <ContainerCardClassroom height="calc(100vh - 20rem)" overflow="scroll">
             <h1>Turmas</h1>
             <CardClassroom text="3º ano matutino" />
             <CardClassroom text="3º ano vespertino" />
@@ -42,7 +42,7 @@ export function DashboardTeacher() {
         <ContainerActivity>
           <Search />
 
-          <ContainerCardActivity height="calc(100vh - 20rem)">
+          <ContainerCardActivity height="calc(100vh - 20rem)" overflow="scroll">
             <h1>Atividades</h1>
             <AddButton text="Criar Atividade" />
             <h3>Atividades Concluídas</h3>

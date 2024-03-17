@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Card = styled.div<{ height: string }>`
+export const Card = styled.div<{ height: string, overflow?: string }>`
     height: ${(props) => props.height};
     width: 100%;
 
@@ -9,5 +9,5 @@ export const Card = styled.div<{ height: string }>`
     
     padding: 1.5rem;
 
-    overflow-y: scroll;
+    overflow-y: ${(props) => props.overflow};
 `

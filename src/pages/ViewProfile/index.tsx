@@ -1,4 +1,4 @@
-import { Camera, LockKey, SignOut, Trash } from 'phosphor-react'
+import { LockKey, SignOut, Trash } from 'phosphor-react'
 import { ContainerCardInfo, ContainerCardPerfil } from './styles/ContainerCard'
 import { MainViewProfile } from './styles/MainViewProfile'
 import { ContainerPhoto } from './styles/ContainerPhoto'
@@ -8,6 +8,7 @@ import { InputUpdate } from '../../components/Inputs/InputUpdate/index'
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/auth/AuthContext'
 import { Arrow } from '../../components/Arrow'
+import { Photo } from '../../components/Photo'
 
 export function ViewProfile() {
   const auth = useContext(AuthContext)
@@ -18,15 +19,7 @@ export function ViewProfile() {
       <div className="container">
         <ContainerCardPerfil width="30%">
           <ContainerPhoto>
-            <div className="photo">
-              <img
-                src="https://www.gov.br/cdn/sso-status-bar/src/image/user.png"
-                alt=""
-              />
-              <div className="camera">
-                <Camera size={16} weight="fill" />
-              </div>
-            </div>
+            <Photo imgUrl="https://www.gov.br/cdn/sso-status-bar/src/image/user.png" border='2px solid #00B8F0' />
             <strong>
               {auth.user?.first_name} {auth.user?.last_name}
             </strong>
