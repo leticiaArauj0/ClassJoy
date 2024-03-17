@@ -8,6 +8,7 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 import { ViewProfile } from './pages/ViewProfile'
 import { RequiredAuth } from './contexts/auth/RequiredAuth'
 import { DashboardTeacher } from './pages/DashboardTeacher'
+import { Students } from './pages/Students'
 
 export function Router() {
   return (
@@ -28,6 +29,7 @@ export function Router() {
       >
         <Route path="consultar-perfil" element={<ViewProfile />} /> 
         <Route path="dashboard-professor" element={<DashboardTeacher />} />
+        <Route path="students" element={<Students />} />
       </Route>
     </Routes>
   )

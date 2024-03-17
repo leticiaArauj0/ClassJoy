@@ -6,7 +6,7 @@ export const ContainerIcon = styled.div<{ position?: string }>`
   justify-content: center;
 
   padding-left: 1rem;
-  left: 32rem;
+  left: calc(100% - 4rem);
   bottom: 5px;
 
   color: #131313;

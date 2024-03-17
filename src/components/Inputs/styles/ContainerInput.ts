@@ -5,4 +5,6 @@ export const ContainerInput = styled.div`
   width: 100%;
   display: flex;
   margin-top: 0.3rem;
+
+  position: relative;
 `

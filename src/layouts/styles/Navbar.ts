@@ -19,4 +19,9 @@ export const Navbar = styled.div`
     margin: 2.5rem;
     cursor: pointer;
   }
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.white};
+  }
 `

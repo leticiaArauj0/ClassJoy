@@ -56,8 +56,6 @@ export function ViewProfile() {
               <div className="container-label">
                 <label htmlFor="">Nome</label>
                 <InputUpdate
-                  width="15%"
-                  position="55%"
                   icon="user"
                   outlineColor="#00B8F0"
                   borderColor="#00B8F0"
@@ -67,8 +65,6 @@ export function ViewProfile() {
               <div className="container-label">
                 <label htmlFor="">Segundo Nome</label>
                 <InputUpdate
-                  width="15%"
-                  position="55%"
                   icon="user"
                   outlineColor="#00B8F0"
                   borderColor="#00B8F0"
@@ -78,8 +74,6 @@ export function ViewProfile() {
             </div>
             <label htmlFor="">E-mail</label>
             <InputUpdate
-              width="30.5%"
-              position="78%"
               icon="email"
               outlineColor="#00B8F0"
               borderColor="#00B8F0"

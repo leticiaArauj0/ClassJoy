@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ContainerCardInfo = styled.div<{ color: string }>`
     width: 90%;
-    height: 5rem;
+    height: 100%;
 
     display: flex;
     align-items: center;

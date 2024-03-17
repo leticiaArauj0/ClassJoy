@@ -16,6 +16,7 @@ export const ContainerFormUpdate = styled.div`
   .container-name {
     width: 100%;
     display: flex;
+    gap: 0.5rem;
     margin-bottom: 0.8rem;
   }
 

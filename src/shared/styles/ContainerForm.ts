@@ -9,6 +9,8 @@ export const ContainerForm = styled.div`
 
   width: 22rem;
 
+   position: relative;
+
   .text-forgot {
     font-weight: 300;
     margin-bottom: 0.5rem;

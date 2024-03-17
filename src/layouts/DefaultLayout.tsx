@@ -1,5 +1,5 @@
 import { BookOpen, GraduationCap, House, SignOut, Student } from 'phosphor-react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { ContainerDefaultLayout } from './styles/ContainerDefaultLayout'
 import { Navbar } from './styles/Navbar'
 import logo from '../assets/logo-classjoy.svg'
@@ -21,16 +21,24 @@ export function DefaultLayout() {
         <img src={logo} alt="" />
         <ul>
           <li>
-            <House size={38} />
+            <NavLink to="/user/dashboard-professor">
+              <House size={38} />
+            </NavLink>
           </li>
           <li>
-            <GraduationCap size={38} />
+            <NavLink to="/user/dashboard-professor">
+              <GraduationCap size={38} />
+            </NavLink>
           </li>
           <li>
-            <Student size={38} />
+            <NavLink to="/user/students">
+              <Student size={38} />
+            </NavLink>
           </li>
           <li>
-            <BookOpen size={38} />
+            <NavLink to="/user/dashboard-professor">
+              <BookOpen size={38} />
+            </NavLink>
           </li>
           <li onClick={handleLogout}>
             <SignOut size={38} />

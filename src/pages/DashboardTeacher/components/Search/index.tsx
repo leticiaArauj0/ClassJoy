@@ -5,11 +5,11 @@ import { ContainerIcon } from "./styles/ContainerIcon";
 
 export function Search() {
     return(
-        <ContainerSearch>
+        <ContainerSearch>           
             <ContainerInput placeholder="Pesquisar" type="text" />
             <ContainerIcon>
                 <MagnifyingGlass size={30} />
-            </ContainerIcon>
+            </ContainerIcon> 
         </ContainerSearch>
     )
 }

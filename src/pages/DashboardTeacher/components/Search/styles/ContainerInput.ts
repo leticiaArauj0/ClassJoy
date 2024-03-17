@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ContainerInput= styled.input`
   height: 2.5rem;
-  width: 36.5rem;
+  width: 100%;
 
   background-color: ${(props) => props.theme.white};
 

@@ -1,8 +1,4 @@
-import { Bell, EnvelopeSimple, List, UserCircle } from "phosphor-react";
-import { MainDashboard } from "./styles/MainDashboard";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/auth/AuthContext";
-import { Header } from "./styles/Header";
+import { MainUser } from "../../shared/styles/MainUser";
 import { CardInfo } from "../../components/CardInfo";
 import { ContainerCardInfo } from "./styles/ContainerCardInfo";
 import { ContainerClassroom } from "./styles/ContainerClassroom";
@@ -12,24 +8,14 @@ import { CardClassroom } from "./components/CardClassroom";
 import { Search } from "./components/Search";
 import { AddButton } from "../../components/AddButton";
 import { CardActivity } from "./components/CardActivity";
-import { NavLink } from "react-router-dom";
+import { Header } from "../../components/Header";
+import { ContainerClassroomActivity } from "./styles/ContainerClassroomActivity";
+import { ContainerInfo } from "../../shared/styles/ContainerInfo";
 
 export function DashboardTeacher() {
-  const auth = useContext(AuthContext)
-
   return (
-    <MainDashboard>
-      <Header>
-        <List size={32} />
-        <div>
-          <Bell size={24} />
-          <EnvelopeSimple size={24} />
-          <NavLink to="/user/consultar-perfil">
-            <UserCircle size={40} weight="thin" />
-          </NavLink>
-          <strong>{auth.user?.first_name} {auth.user?.last_name}</strong>
-        </div>
-      </Header>
+    <MainUser>
+      <Header />
 
       <ContainerCardInfo>
         <CardInfo color="#77BF0B" icon="classroom" text="Turmas" number={3} />
@@ -38,14 +24,14 @@ export function DashboardTeacher() {
         <CardInfo color="#00B8F0" icon="activity" text="Atividades Completas" number={8} />
       </ContainerCardInfo>
 
-      <div className="container-classroom-activity">
+      <ContainerClassroomActivity>
         <ContainerClassroom>
-          <div className="classroom-info">
+          <ContainerInfo>
             <span>Turmas Arquivadas</span>
             <span>Códigos</span>
-          </div>
+          </ContainerInfo>
 
-          <ContainerCardClassroom>
+          <ContainerCardClassroom height="calc(100vh - 20rem)">
             <h1>Turmas</h1>
             <CardClassroom text="3º ano matutino" />
             <CardClassroom text="3º ano vespertino" />
@@ -56,7 +42,7 @@ export function DashboardTeacher() {
         <ContainerActivity>
           <Search />
 
-          <ContainerCardActivity>
+          <ContainerCardActivity height="calc(100vh - 20rem)">
             <h1>Atividades</h1>
             <AddButton text="Criar Atividade" />
             <h3>Atividades Concluídas</h3>
@@ -66,7 +52,7 @@ export function DashboardTeacher() {
             <CardActivity title="Acentuação" classroom={3} date="30/02/2024" />
           </ContainerCardActivity>
         </ContainerActivity>
-      </div>
-    </MainDashboard>
+      </ContainerClassroomActivity>
+    </MainUser>
   )
 }

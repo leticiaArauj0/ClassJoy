@@ -7,8 +7,6 @@ import { RegisterOptions } from 'react-hook-form'
 type RegisterFunction = (name: string, options?: RegisterOptions) => object
 
 interface InputProps {
-  width: string
-  position?: string
   icon: string
   value: string | undefined
   outlineColor: string
@@ -17,8 +15,6 @@ interface InputProps {
 }
 
 export function InputUpdate({
-  width,
-  position,
   icon,
   value,
   outlineColor,
@@ -36,15 +32,14 @@ export function InputUpdate({
   return (
     <ContainerInput>
       <ContainerIcon>{button}</ContainerIcon>
+      <ContainerIcon position="calc(100% - 5.75rem)"><PencilSimpleLine size={24} /></ContainerIcon>
       <ContainerField
         type="text"
-        width={width}
         outlineColor={outlineColor}
         borderColor={borderColor}
         defaultValue={value}
         {...registerProps}
-      />
-      <ContainerIcon position={position}><PencilSimpleLine size={24} /></ContainerIcon>
+      />    
     </ContainerInput>
   )
 }

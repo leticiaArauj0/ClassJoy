@@ -7,4 +7,5 @@ export const ContainerInputError = styled.div<{ margin: string }>`
   gap: 0.4rem;
   margin-bottom: ${(props) => props.margin};
   line-height: 0.9;
+  position: relative;
 `
