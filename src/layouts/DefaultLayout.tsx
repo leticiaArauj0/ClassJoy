@@ -26,7 +26,7 @@ export function DefaultLayout() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/user/dashboard-professor">
+            <NavLink to="/user/classroom">
               <GraduationCap size={38} />
             </NavLink>
           </li>
