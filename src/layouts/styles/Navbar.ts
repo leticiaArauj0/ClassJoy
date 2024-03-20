@@ -15,13 +15,26 @@ export const Navbar = styled.div`
 
   li {
     list-style: none;
-    color: ${(props) => props.theme.white};
+    width: 100%;
+    color: ${(props) => props.theme.white}; 
+
     margin: 2.5rem;
+    padding: 0.5rem 3rem;
+
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+
     cursor: pointer;
+    transition: 0.1s ease all;
   }
 
-  a {
-    text-decoration: none;
-    color: ${(props) => props.theme.white};
+  li:hover {
+    background-color: ${(props) => props.theme.white};
+    color: ${(props) => props.theme['purple-700']};
+  }
+
+  .home, .classroom, .students {
+    background-color: ${(props) => props.theme.white};
+    color: ${(props) => props.theme['purple-700']};
   }
 `

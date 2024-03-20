@@ -4,10 +4,9 @@ export const ContainerClassroom = styled.div`
     height: 100%;
     width: 100%;
     display: grid;
-    flex-grow: 1;
     grid-template-columns: 1fr 1fr;
 
-    .container-donut-chart{
+    .container-chart-activity {
         height: 100%;
         width: 95%;
 
@@ -19,6 +18,5 @@ export const ContainerClassroom = styled.div`
     .container-bar-chart {
         height: 100%;
         width: 95%;
-        padding-top: 3.68rem;
     }
 `

@@ -13,4 +13,6 @@ export const MainUser = styled.main`
 
   background-color: ${(props) => props.theme['gray-100']};
   border-radius: 20px;
+
+  overflow-y: auto;
 `

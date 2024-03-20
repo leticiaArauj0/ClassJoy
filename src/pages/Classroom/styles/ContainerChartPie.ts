@@ -9,8 +9,6 @@ export const ContainerChartPie = styled(Card)`
     align-items: center;
     gap: 0.5rem;
 
-    box-shadow: 0px 2px 3px #00000020;
-
     cursor: pointer;
 
     h3 {

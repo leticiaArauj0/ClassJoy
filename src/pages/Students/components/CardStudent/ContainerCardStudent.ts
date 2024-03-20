@@ -13,6 +13,8 @@ export const ContainerCardStudent = styled.div`
     background-color: ${(props) => props.theme['orange-400']};
     border-radius: 15px;
 
+    cursor: pointer;
+
     img {
         height: 100%;
         border-radius: 100px;

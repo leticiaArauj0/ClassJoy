@@ -9,17 +9,12 @@ export function PieChart() {
     };
     
     return (
-        <div className="app">
-            <div className="row">
-            <div className="mixed-chart">
-                <Chart
-                    options={state.chartOptions}
-                    series={state.series}
-                    type="donut"
-                    width="380"
-                />
-            </div>
-            </div>
-        </div>
+        <Chart
+            options={state.chartOptions}
+            series={state.series}
+            type="donut"
+            width={370}
+            height="90%"
+        />
     );
 }
