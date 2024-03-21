@@ -1,4 +1,4 @@
-import { BookOpen, GraduationCap, House, SignOut, Student } from 'phosphor-react'
+import { BookOpen, ChalkboardTeacher, House, SignOut, Student } from 'phosphor-react'
 import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { ContainerDefaultLayout } from './styles/ContainerDefaultLayout'
 import { Navbar } from './styles/Navbar'
@@ -43,7 +43,7 @@ export function ManageLayout() {
           </NavLink>
           <NavLink to="/manage/classroom">
             <li className={classroom}>
-              <GraduationCap size={38} />
+              <ChalkboardTeacher size={38} />
             </li>
           </NavLink>
           <NavLink to="/manage/students">

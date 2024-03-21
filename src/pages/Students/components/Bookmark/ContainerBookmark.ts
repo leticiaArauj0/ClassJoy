@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
 export const ContainerBookmark = styled.div`
-    width: 100%;
+    width: 98.3%;
 
     display: flex;
     align-items: center;
     gap: 1.5rem;
+
+    margin-bottom: 1rem;
 
     strong {
         font-size: 2.5rem;

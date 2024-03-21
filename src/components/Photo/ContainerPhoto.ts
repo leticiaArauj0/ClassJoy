@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const ContainerPhoto = styled.div<{ border?: string }>`
+export const ContainerPhoto = styled.div<{ border?: string, height: string, camera?: string }>`
     display: flex;
     justify-content: center;
-    height: 7rem;
+    height: ${(props) => props.height};
 
     img {
-      height: 7rem;
+      height: ${(props) => props.height};
 
       border: ${(props) => props.border};
       border-radius: 70px;
@@ -19,7 +19,7 @@ export const ContainerPhoto = styled.div<{ border?: string }>`
       height: 1.5rem;
       width: 1.5rem;
 
-      display: flex;
+      display: ${(props) => props.camera};
       align-items: center;
       justify-content: center;
       align-self: flex-end;

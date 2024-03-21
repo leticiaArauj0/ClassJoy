@@ -6,17 +6,12 @@ export const ContainerClassroom = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    .container-chart-activity {
+    .container-chart-activity, .container-bar-chart {
         height: 100%;
         width: 95%;
 
         display: flex;
         flex-direction: column;
         gap: 1rem;
-    }
-
-    .container-bar-chart {
-        height: 100%;
-        width: 95%;
     }
 `

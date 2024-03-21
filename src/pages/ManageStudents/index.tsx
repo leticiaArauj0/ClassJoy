@@ -42,7 +42,7 @@ export function ManageStudents() {
                     <Search />
                     <ContainerInfoStudents height="calc(100vh - 14rem)">
                         <div className="background"></div>
-                        <Photo imgUrl="\src\assets\student.png" border='5px solid #351181' />
+                        <Photo height="7rem" camera="flex" imgUrl="\src\assets\student.png" border='5px solid #351181' />
                         <h2>Juliana Barbosa</h2>
                         <div className="container-age-code">
                             <span>

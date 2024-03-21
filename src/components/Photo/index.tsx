@@ -2,13 +2,15 @@ import { Camera } from "phosphor-react";
 import { ContainerPhoto } from "./ContainerPhoto";
 
 interface PhotoProps {
+  height: string
   border?: string
+  camera?: string
   imgUrl: string
 }
 
-export function Photo({ imgUrl, border }: PhotoProps) {
+export function Photo({ imgUrl, border, height, camera }: PhotoProps) {
     return(
-        <ContainerPhoto border={border}>
+        <ContainerPhoto camera={camera} height={height} border={border}>
           <img
             src={imgUrl}
             alt=""
