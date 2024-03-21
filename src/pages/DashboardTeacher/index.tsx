@@ -3,13 +3,13 @@ import { ContainerClassroom } from "./styles/ContainerClassroom";
 import { ContainerCardClassroom } from "./styles/ContainerCardClassroom"
 import { ContainerActivity, ContainerCardActivity } from "./styles/ContainerCardActivity";
 import { CardClassroom } from "./components/CardClassroom";
-import { Search } from "./components/Search";
 import { AddButton } from "../../components/AddButton";
 import { CardActivity } from "./components/CardActivity";
 import { Header } from "../../components/Header";
 import { ContainerClassroomActivity } from "./styles/ContainerClassroomActivity";
 import { ContainerInfo } from "../../shared/styles/ContainerInfo";
 import { InfoClassroom } from "../../components/InfoClassroom";
+import { Search } from "../../components/Search";
 
 export function DashboardTeacher() {
   return (

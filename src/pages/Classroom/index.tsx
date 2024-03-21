@@ -1,34 +1,24 @@
-import { PieChart } from "../../components/Charts/PieChart";
+import { AddCircleButton } from "../../components/AddCircleButton";
 import { Header } from "../../components/Header";
-import { InfoClassroom } from "../../components/InfoClassroom";
+import { Search } from "../../components/Search";
 import { MainUser } from "../../shared/styles/MainUser";
-import { ContainerActivity } from "./styles/ContainerActivity";
-import { ContainerChartBar } from "./styles/ContainerChartBar";
-import { ContainerChartPie } from "./styles/ContainerChartPie";
+import { CardClassroom } from "./components/CardClassroom";
 import { ContainerClassroom } from "./styles/ContainerClassroom";
 
 export function Classroom() {
     return(
         <MainUser>
             <Header />
-            <InfoClassroom />
-            <h1>Estatísticas</h1>
+            <Search width="98.3%" />
             <ContainerClassroom>
-                <div className="container-chart-activity">    
-                    <ContainerChartPie height="16rem">
-                        <h3>Assuntos Abordados</h3>
-                        <PieChart />
-                    </ContainerChartPie>
-                    <ContainerActivity height="12rem">
-
-                    </ContainerActivity>
-                </div>
-                <div className="container-bar-chart">
-                    <ContainerChartBar height="16rem">
-                        <h3>Média das Atividades</h3>
-                    </ContainerChartBar>
-                </div>
+                <CardClassroom />
+                <CardClassroom />
+                <CardClassroom />
+                <CardClassroom />
+                <CardClassroom />
+                <CardClassroom />
             </ContainerClassroom>
+            <AddCircleButton />
         </MainUser>
     )
 }

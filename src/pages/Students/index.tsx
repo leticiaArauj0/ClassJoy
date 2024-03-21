@@ -4,11 +4,11 @@ import { Header } from "../../components/Header";
 import { Photo } from "../../components/Photo";
 import { ContainerInfo } from "../../shared/styles/ContainerInfo";
 import { MainUser } from "../../shared/styles/MainUser";
-import { Search } from "../DashboardTeacher/components/Search";
 import { CardStudent } from "./components/CardStudent";
 import { ContainerCardStudents } from "./styles/ContainerCardStudents";
 import { ContainerInfoStudents } from "./styles/ContainerInfoStudents";
 import { ContainerStudents } from "./styles/ContainerStudents";
+import { Search } from "../../components/Search";
 
 export function Students() {
     return (

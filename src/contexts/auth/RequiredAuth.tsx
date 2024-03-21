@@ -1,12 +1,13 @@
 import { useContext } from 'react'
 import { AuthContext } from './AuthContext'
-import { ChooseProfile } from '../../pages/ChooseProfile'
+import { useNavigate } from 'react-router-dom'
 
 export const RequiredAuth = ({ children }: { children: JSX.Element }) => {
   const auth = useContext(AuthContext)
+  const navigate = useNavigate()
 
   if (!auth.user) {
-    return <ChooseProfile />
+    navigate('/')
   }
 
   return children

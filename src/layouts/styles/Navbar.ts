@@ -37,4 +37,30 @@ export const Navbar = styled.div`
     background-color: ${(props) => props.theme.white};
     color: ${(props) => props.theme['purple-700']};
   }
+
+  .logout {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    color: ${(props) => props.theme.white}; 
+
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    position: absolute;
+    bottom: 4rem;
+
+    padding: 0.5rem 0 0 3rem;
+    cursor: pointer;
+
+    svg {
+      rotate: 180deg;
+    }
+  }
+
+  .logout:hover {
+    opacity: 0.8;
+    transition: 0.1s ease all;
+  }
 `

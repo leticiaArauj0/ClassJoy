@@ -2,7 +2,7 @@ import { PlusCircle } from "phosphor-react"
 import { ContainerAddButton } from "./ContainterAddButton"
 
 interface AddButtonProps {
-    text: string
+    text?: string
 }
 
 export function AddButton({ text }: AddButtonProps) {

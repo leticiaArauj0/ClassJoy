@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const ContainerIcon = styled.div<{ position?: string }>`
+  height: 3rem;
+  
   display: flex;
   align-items: center;
   justify-content: center;

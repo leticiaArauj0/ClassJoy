@@ -1,4 +1,4 @@
-import { BookOpen, GraduationCap, House, SignOut, Student } from 'phosphor-react'
+import { ChalkboardTeacher, House, SignOut, Student } from 'phosphor-react'
 import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { ContainerDefaultLayout } from './styles/ContainerDefaultLayout'
 import { Navbar } from './styles/Navbar'
@@ -30,7 +30,7 @@ export function DefaultLayout() {
   if(currentUrl === "/user/classroom") {
     classroom = "classroom"
   } 
-  if(currentUrl === "/user/students") {
+  if(currentUrl === "/user/manage-students") {
     students = "students"
   } 
 
@@ -46,22 +46,18 @@ export function DefaultLayout() {
           </NavLink>
           <NavLink to="/user/classroom">
             <li className={classroom}>
-              <GraduationCap size={38} />
+              <ChalkboardTeacher size={38} />
             </li>
           </NavLink>
-          <NavLink to="/user/students">
+          <NavLink to="/user/manage-students">
             <li className={students}>
               <Student size={38} />
             </li>
           </NavLink>
-          <NavLink to="/user/dashboard-professor">
-            <li>
-              <BookOpen size={38} />
-            </li>
-          </NavLink>
-          <li onClick={handleLogout}>
-            <SignOut size={38} />
-          </li>
+          <div className="logout" onClick={handleLogout}>
+            <SignOut size={38} weight="light" />
+            <span>Sair</span>
+          </div>
         </ul>
       </Navbar>
       <Outlet />

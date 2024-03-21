@@ -3,9 +3,13 @@ import { ContainerSearch } from "./styles/ContainerSearch";
 import { ContainerInput } from "./styles/ContainerInput";
 import { ContainerIcon } from "./styles/ContainerIcon";
 
-export function Search() {
+interface SearchProps {
+    width?: string
+}
+
+export function Search({ width }: SearchProps) {
     return(
-        <ContainerSearch>           
+        <ContainerSearch width={width}>           
             <ContainerInput placeholder="Pesquisar" type="text" />
             <ContainerIcon>
                 <MagnifyingGlass size={30} />
