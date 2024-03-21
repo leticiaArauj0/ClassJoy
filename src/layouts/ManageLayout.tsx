@@ -1,4 +1,4 @@
-import { ChalkboardTeacher, House, SignOut, Student } from 'phosphor-react'
+import { BookOpen, GraduationCap, House, SignOut, Student } from 'phosphor-react'
 import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { ContainerDefaultLayout } from './styles/ContainerDefaultLayout'
 import { Navbar } from './styles/Navbar'
@@ -6,7 +6,7 @@ import logo from '../assets/logo-classjoy.svg'
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../contexts/auth/AuthContext'
 
-export function DefaultLayout() {
+export function ManageLayout() {
   const auth = useContext(AuthContext)
   const navigate = useNavigate()
 
@@ -22,15 +22,12 @@ export function DefaultLayout() {
     setCurrentUrl(location.pathname);
   }, [location]);
 
-  let home, classroom, students
+  let classroom, students
 
-  if(currentUrl === "/user/dashboard-professor") {
-    home = "home"
-  } 
-  if(currentUrl === "/user/classroom") {
+  if(currentUrl === "/manage/classroom") {
     classroom = "classroom"
   } 
-  if(currentUrl === "/user/students") {
+  if(currentUrl === "/manage/students") {
     students = "students"
   } 
 
@@ -40,20 +37,23 @@ export function DefaultLayout() {
         <img src={logo} alt="" />
         <ul>
           <NavLink to="/user/dashboard-professor">
-            <li className={home}>
+            <li>
               <House size={38} />
             </li>
           </NavLink>
-          <NavLink to="/user/classroom">
+          <NavLink to="/manage/classroom">
             <li className={classroom}>
-              <ChalkboardTeacher size={38} />
+              <GraduationCap size={38} />
             </li>
           </NavLink>
-          <NavLink to="/user/students">
+          <NavLink to="/manage/students">
             <li className={students}>
               <Student size={38} />
             </li>
           </NavLink>
+          <li>
+            <BookOpen size={38} />
+          </li>
           <div className="logout" onClick={handleLogout}>
             <SignOut size={38} weight="light" />
             <span>Sair</span>

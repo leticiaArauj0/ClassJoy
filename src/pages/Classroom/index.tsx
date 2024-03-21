@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { AddCircleButton } from "../../components/AddCircleButton";
 import { Header } from "../../components/Header";
 import { Search } from "../../components/Search";
@@ -11,7 +12,9 @@ export function Classroom() {
             <Header />
             <Search width="98.3%" />
             <ContainerClassroom>
-                <CardClassroom />
+                <NavLink to="/manage/classroom">
+                    <CardClassroom />
+                </NavLink>
                 <CardClassroom />
                 <CardClassroom />
                 <CardClassroom />

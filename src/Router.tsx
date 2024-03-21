@@ -8,9 +8,11 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 import { ViewProfile } from './pages/ViewProfile'
 import { RequiredAuth } from './contexts/auth/RequiredAuth'
 import { DashboardTeacher } from './pages/DashboardTeacher'
-import { Students } from './pages/Students'
+import { ManageStudents } from './pages/ManageStudents'
 import { Classroom } from './pages/Classroom'
 import { ManageClassroom } from './pages/ManageClassroom'
+import { Students } from './pages/Students'
+import { ManageLayout } from './layouts/ManageLayout'
 
 export function Router() {
   return (
@@ -31,9 +33,21 @@ export function Router() {
       >
         <Route path="consultar-perfil" element={<ViewProfile />} /> 
         <Route path="dashboard-professor" element={<DashboardTeacher />} />
-        <Route path="manage-students" element={<Students />} />
         <Route path="classroom" element={<Classroom />} />
-        <Route path="manage-classroom" element={<ManageClassroom />} />
+        <Route path="students" element={<Students />} />
+        <Route path="manage-students" element={<ManageStudents />} />
+        <Route path="classroom/manage-classroom" element={<ManageClassroom />} />
+      </Route>
+
+      <Route 
+        path="/manage" 
+        element={
+          <RequiredAuth>
+            <ManageLayout />
+          </RequiredAuth>
+        }>
+        <Route path="students" element={<ManageStudents />} />
+        <Route path="classroom" element={<ManageClassroom />} />
       </Route>
     </Routes>
   )
