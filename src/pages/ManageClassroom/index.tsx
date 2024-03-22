@@ -9,12 +9,16 @@ import { ContainerChartPie } from "./styles/ContainerChartPie";
 import { ContainerClassroom } from "./styles/ContainerClassroom";
 import { CardActivity } from "../DashboardTeacher/components/CardActivity";
 import { ContainerStudents } from "./styles/ContainerStudents";
+import { CardStudent } from "./components/CardStudent";
+import { AddStudent } from "./components/AddStudent";
+import { BarChart } from "../../components/Charts/BarChart";
 
 export function ManageClassroom() {
     return(
         <MainUser>
             <Header />
             <InfoClassroom />
+
             <h1>Estatísticas</h1>
             <ContainerClassroom>
                 <div className="container-chart-activity">    
@@ -22,6 +26,7 @@ export function ManageClassroom() {
                         <h3>Assuntos Abordados</h3>
                         <PieChart />
                     </ContainerChartPie>
+
                     <ContainerActivity height="16rem">
                         <div className="header">
                             <h2>Atividades</h2>
@@ -32,12 +37,24 @@ export function ManageClassroom() {
                         <CardActivity title="Interpretação Textual" classroom={8} date="20/03/24" color="#00B8F0" />
                     </ContainerActivity>
                 </div>
-                <div className="container-bar-chart">
+
+                <div className="container-chart-student">
                     <ContainerChartBar height="16rem">
                         <h3>Média das Atividades</h3>
+                        <BarChart />
                     </ContainerChartBar>
+
                     <ContainerStudents height="16rem">
-                        <h2>Alunos</h2>           
+                        <h2>Alunos</h2>
+                        <div className="content">
+                            <AddStudent />
+                            <CardStudent />
+                            <CardStudent />
+                            <CardStudent />
+                            <CardStudent />
+                            <CardStudent />
+                            <CardStudent />
+                        </div> 
                     </ContainerStudents>
                 </div>
             </ContainerClassroom>

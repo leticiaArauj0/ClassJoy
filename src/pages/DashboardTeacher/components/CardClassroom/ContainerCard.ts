@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ContainerCard = styled.div`
-    width: 90%;
+    width: 100%;
     height: 12rem;
 
     display: flex;
@@ -13,7 +13,7 @@ export const ContainerCard = styled.div`
 
     padding: 1rem;
     margin-top: 1rem;
-    border-radius: 10px;
+    border-radius: 15px;
 
     cursor: pointer;
     overflow: hidden;

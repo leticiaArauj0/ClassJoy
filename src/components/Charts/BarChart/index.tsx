@@ -2,10 +2,23 @@ import Chart from "react-apexcharts";
 
 export function BarChart() {
     const state = {
-        series: [3, 5, 8, 6],
-        chartOptions: {
-            labels: ['Interpretação Textual', 'Substantivo Próprio', 'Sílaba Tônica', 'Separação Silábica']
-        }
+        options: {
+          chart: {
+            id: "basic-bar"
+          },
+          xaxis: {
+            categories: ["A", "B", "C", "D"]
+          },
+          fill: {
+            colors: ['#966BF2']
+          }
+        },
+        series: [
+          {
+            name: "Média",
+            data: [8, 10, 6, 4]
+          }
+        ]  
     };
     
     return (
@@ -13,10 +26,10 @@ export function BarChart() {
             <div className="row">
             <div className="mixed-chart">
                 <Chart
-                    options={state.chartOptions}
+                    options={state.options}
                     series={state.series}
                     type="bar"
-                    width="380"
+                    width="320"
                 />
             </div>
             </div>

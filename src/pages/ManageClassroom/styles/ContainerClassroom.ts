@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 export const ContainerClassroom = styled.div`
     height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 98%;
 
-    .container-chart-activity, .container-bar-chart {
+    display: flex;
+    gap: 1rem;
+
+    .container-chart-activity, .container-chart-student {
         height: 100%;
-        width: 95%;
+        width: 50%;
 
         display: flex;
         flex-direction: column;

@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const ContainerArrow = styled.div`
   margin: 1rem 0 0 1rem;
+  position: relative;
+  z-index: 1;
 
   a {
     text-decoration: none;

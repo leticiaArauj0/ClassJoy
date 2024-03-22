@@ -40,10 +40,10 @@ export function DashboardTeacher() {
             <h1>Atividades</h1>
             <AddButton text="Criar Atividade" />
             <h3>Atividades Concluídas</h3>
-            <CardActivity title="Interpretação Textual" classroom={5} date="18/02/2024" />
+            <CardActivity color="#966BF2" title="Interpretação Textual" classroom={5} date="18/02/2024" />
             <h3>Atividades Atribuídas</h3>
-            <CardActivity title="Separação Silábica" classroom={8} date="25/02/2024" />
-            <CardActivity title="Acentuação" classroom={3} date="30/02/2024" />
+            <CardActivity color="#966BF2" title="Separação Silábica" classroom={8} date="25/02/2024" />
+            <CardActivity color="#966BF2" title="Acentuação" classroom={3} date="30/02/2024" />
           </ContainerCardActivity>
         </ContainerActivity>
       </ContainerClassroomActivity>

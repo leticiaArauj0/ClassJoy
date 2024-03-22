@@ -15,11 +15,12 @@ export function ViewProfile() {
 
   return (
     <MainViewProfile>
+      <div className="background"></div>
       <Arrow navLink="/user/dashboard-professor" />
       <div className="container">
         <ContainerCardPerfil width="30%">
           <ContainerPhoto>
-            <Photo imgUrl="https://www.gov.br/cdn/sso-status-bar/src/image/user.png" border='2px solid #00B8F0' />
+            <Photo height="6.5rem" camera="flex" imgUrl="https://www.gov.br/cdn/sso-status-bar/src/image/user.png" border='2px solid #00B8F0' />
             <strong>
               {auth.user?.first_name} {auth.user?.last_name}
             </strong>

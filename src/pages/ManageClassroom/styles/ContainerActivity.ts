@@ -12,7 +12,7 @@ export const ContainerActivity = styled(Card)`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
 
         svg {
             cursor: pointer;
