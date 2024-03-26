@@ -52,7 +52,6 @@ export function RegisterAsTeacher() {
     })
 
     const isLogged = await auth.login(email, password)
-    console.log(isLogged)
 
     if (isLogged) {
       navigate('/user/dashboard-professor')

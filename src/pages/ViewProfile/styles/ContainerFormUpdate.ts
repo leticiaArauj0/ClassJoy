@@ -17,7 +17,6 @@ export const ContainerFormUpdate = styled.div`
     width: 100%;
     display: flex;
     gap: 0.5rem;
-    margin-bottom: 0.8rem;
   }
 
   .container-label {
