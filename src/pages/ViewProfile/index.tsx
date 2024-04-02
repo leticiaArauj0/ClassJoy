@@ -15,7 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { api } from '../../lib/axios'
 import { updateFormValidationSchema } from '../../shared/validation/schemas/updateFormValidationSchema'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
-import { ErrorMenssage } from '../../components/ErrorMenssage'
+import { ErrorMessage } from '../../components/ErrorMessage'
 
 export type FormUpdate = zod.infer<typeof updateFormValidationSchema>
 
@@ -38,6 +38,8 @@ export function ViewProfile() {
       last_name: lastName,
       email,
     })
+
+    location.reload()
   }
 
   return (
@@ -88,7 +90,7 @@ export function ViewProfile() {
                         value={auth.user?.first_name}
                         registerProps={register('firstName')}
                       />
-                      <ErrorMenssage menssage={firstNameError} />
+                      <ErrorMessage menssage={firstNameError} />
                     </ContainerInputError>
                   </div>
                   <div className="container-label">
@@ -101,7 +103,7 @@ export function ViewProfile() {
                         value={auth.user?.last_name}
                         registerProps={register('lastName')}
                       />
-                      <ErrorMenssage menssage={lastNameError} />
+                      <ErrorMessage menssage={lastNameError} />
                     </ContainerInputError>
                   </div>
                 </div>
@@ -115,7 +117,7 @@ export function ViewProfile() {
                     value={auth.user?.email}
                     registerProps={register('email')}
                   />
-                  <ErrorMenssage menssage={emailError} />
+                  <ErrorMessage menssage={emailError} />
                 </ContainerInputError>
             </ContainerFormUpdate>
             <div className="container-button">

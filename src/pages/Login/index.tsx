@@ -13,7 +13,7 @@ import { ContainerForgetPassword } from './styles/ContainerForgotPassword'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
-import { ErrorMenssage } from '../../components/ErrorMenssage'
+import { ErrorMessage } from '../../components/ErrorMessage'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
 import { loginFormValidationSchema } from '../../shared/validation/schemas/loginFormValidationSchema'
 import { useContext } from 'react'
@@ -63,7 +63,7 @@ export function Login() {
                   borderColor={emailError ? '#fc6647' : 'transparent'}
                   registerProps={register('email')}
                 />
-                <ErrorMenssage menssage={emailError} />
+                <ErrorMessage menssage={emailError} />
               </ContainerInputError>
               <ContainerInputError margin={passwordError ? '0' : '0.5rem'}>
                 <InputPassword
@@ -74,7 +74,7 @@ export function Login() {
                   borderColor={passwordError ? '#fc6647' : 'transparent'}
                   registerProps={register('password')}
                 />
-                <ErrorMenssage menssage={passwordError} />
+                <ErrorMessage menssage={passwordError} />
               </ContainerInputError>
             </ContainerForm>
             <ContainerForgetPassword>

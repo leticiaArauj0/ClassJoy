@@ -13,7 +13,7 @@ import { Main } from '../../shared/styles/Main'
 import { api } from '../../lib/axios'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ErrorMenssage } from '../../components/ErrorMenssage'
+import { ErrorMessage } from '../../components/ErrorMessage'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
 import { registerFormValidationSchema } from '../../shared/validation/schemas/registerFormValidationSchema'
 import * as zod from 'zod'
@@ -88,7 +88,7 @@ export function RegisterAsTeacher() {
                   borderColor={firstNameError ? '#fc6647' : 'transparent'}
                   registerProps={register('firstName')}
                 />
-                <ErrorMenssage menssage={firstNameError} />
+                <ErrorMessage menssage={firstNameError} />
               </ContainerInputError>
               <ContainerInputError margin={lastNameError ? '0' : '0.5rem'}>
                 <Input
@@ -98,7 +98,7 @@ export function RegisterAsTeacher() {
                   borderColor={lastNameError ? '#fc6647' : 'transparent'}
                   registerProps={register('lastName')}
                 />
-                <ErrorMenssage menssage={lastNameError} />
+                <ErrorMessage menssage={lastNameError} />
               </ContainerInputError>
               <ContainerInputError margin={emailError ? '0' : '0.5rem'}>
                 <Input
@@ -108,7 +108,7 @@ export function RegisterAsTeacher() {
                   borderColor={emailError ? '#fc6647' : 'transparent'} 
                   registerProps={register('email')}
                 />
-                <ErrorMenssage menssage={emailError} />
+                <ErrorMessage menssage={emailError} />
               </ContainerInputError>
               <div className="container-password">
                 <ContainerInputError margin={passwordError ? '0' : '0.5rem'}>
@@ -120,7 +120,7 @@ export function RegisterAsTeacher() {
                     outlineColor={passwordError ? '#fc6647' : '#966BF2'}
                     borderColor={passwordError ? '#fc6647' : 'transparent'}
                   />
-                  <ErrorMenssage menssage={passwordError} />
+                  <ErrorMessage menssage={passwordError} />
                 </ContainerInputError>
                 <ContainerInputError
                   margin={confirmPasswordError ? '0' : '0.5rem'}
@@ -133,7 +133,7 @@ export function RegisterAsTeacher() {
                     outlineColor={confirmPasswordError ? '#fc6647' : '#966BF2'}
                     borderColor={confirmPasswordError ? '#fc6647' : 'transparent'}
                   />
-                  <ErrorMenssage menssage={confirmPasswordError} />
+                  <ErrorMessage menssage={confirmPasswordError} />
                 </ContainerInputError>
               </div>
               <Terms>

@@ -9,7 +9,7 @@ import { forgotFormValidationSchema } from '../../shared/validation/schemas/forg
 import * as zod from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ErrorMenssage } from '../../components/ErrorMenssage'
+import { ErrorMessage } from '../../components/ErrorMessage'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
 
 type FormForgot = zod.infer<typeof forgotFormValidationSchema>
@@ -51,7 +51,7 @@ export function ForgetPassword() {
                   borderColor={emailError ? '#fc6647' : 'transparent'}
                   registerProps={register('email')}
                 />
-                <ErrorMenssage menssage={emailError} />
+                <ErrorMessage menssage={emailError} />
               </ContainerInputError>
               <Button
                 text="Recuperar Senha"

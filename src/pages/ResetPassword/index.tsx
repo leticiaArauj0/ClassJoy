@@ -8,7 +8,7 @@ import { resetFormValidationSchema } from '../../shared/validation/schemas/reset
 import { Main } from '../../shared/styles/Main'
 import * as zod from 'zod'
 import { useForm } from 'react-hook-form'
-import { ErrorMenssage } from '../../components/ErrorMenssage'
+import { ErrorMessage } from '../../components/ErrorMessage'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
 
 type FormReset = zod.infer<typeof resetFormValidationSchema>
@@ -44,7 +44,7 @@ export function ResetPassword() {
                 borderColor={passwordError ? '#fc6647' : 'transparent'}
                 registerProps={register('password')}
               />
-              <ErrorMenssage menssage={passwordError} />
+              <ErrorMessage menssage={passwordError} />
             </ContainerInputError>
             <ContainerInputError margin={confirmPasswordError ? '0' : '0.5rem'}>
               <InputPassword
@@ -55,7 +55,7 @@ export function ResetPassword() {
                 borderColor={confirmPasswordError ? '#fc6647' : 'transparent'}
                 registerProps={register('confirmPassword')}
               />
-              <ErrorMenssage menssage={confirmPasswordError} />
+              <ErrorMessage menssage={confirmPasswordError} />
             </ContainerInputError>
             <Button
               text="Redefinir Senha"

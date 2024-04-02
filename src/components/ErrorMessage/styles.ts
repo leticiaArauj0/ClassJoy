@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ContainerErrorMenssage = styled.span<{ display: string }>`
+export const ContainerErrorMessage = styled.span<{ display: string }>`
   color: ${(props) => props.theme['red-400']};
   display: ${(props) => props.display};
   font-size: 0.7rem;
