@@ -23,7 +23,6 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     }
 
     validateToken()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const login = async (email: string, password: string) => {
@@ -34,6 +33,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
       setTokenInCookie(data.token)
       return true
     }
+
     return false
   }
 

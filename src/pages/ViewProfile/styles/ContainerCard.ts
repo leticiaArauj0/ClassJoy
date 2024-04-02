@@ -28,17 +28,24 @@ export const ContainerCardPerfil = styled(ContainerCard)`
     cursor: pointer;
   }
 
+  .logout svg {
+    rotate: 180deg;
+  }
+
   .delete {
     color: ${(props) => props.theme['red-600']};
   }
 `
 
 export const ContainerCardInfo = styled(ContainerCard)`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  form {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 
-  .container-button {
+  button {
     align-self: flex-end;
   }
 `

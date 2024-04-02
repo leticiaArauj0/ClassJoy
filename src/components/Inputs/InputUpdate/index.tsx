@@ -8,7 +8,7 @@ type RegisterFunction = (name: string, options?: RegisterOptions) => object
 
 interface InputProps {
   icon: string
-  value: string | undefined
+  value?: string | undefined
   outlineColor: string
   borderColor: string
   registerProps?: ReturnType<RegisterFunction>

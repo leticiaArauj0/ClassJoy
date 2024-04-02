@@ -5,7 +5,7 @@ import { ContainerPhoto } from './styles/ContainerPhoto'
 import { Button } from '../../components/Button'
 import { ContainerFormUpdate } from './styles/ContainerFormUpdate'
 import { InputUpdate } from '../../components/Inputs/InputUpdate/index'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AuthContext } from '../../contexts/auth/AuthContext'
 import { Arrow } from '../../components/Arrow'
 import { Photo } from '../../components/Photo'
@@ -15,31 +15,50 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { api } from '../../lib/axios'
 import { updateFormValidationSchema } from '../../shared/validation/schemas/updateFormValidationSchema'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
-import { ErrorMessage } from '../../components/ErrorMessage'
+import { ErrorMessage } from '../../components/ErrorMessage/'
+import { useNavigate } from 'react-router-dom'
 
 export type FormUpdate = zod.infer<typeof updateFormValidationSchema>
 
 export function ViewProfile() {
   const auth = useContext(AuthContext)
-  const { register, handleSubmit, formState } = useForm<FormUpdate>({
+  const navigate = useNavigate()
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormUpdate>({
     resolver: zodResolver(updateFormValidationSchema),
+    defaultValues: {
+      firstName: auth.user?.first_name,
+      lastName: auth.user?.last_name,
+      email: auth.user?.email
+    }
   })
-  const firstNameError = formState.errors.firstName?.message
-  const lastNameError = formState.errors.lastName?.message
-  const emailError = formState.errors.email?.message
+  const firstNameError = errors.firstName?.message
+  const lastNameError = errors.lastName?.message
+  const emailError = errors.email?.message
 
-  async function handleUpdate({
+  async function handleUpdate({ 
     firstName,
     lastName,
-    email,
+    email 
   }: FormUpdate) {
     await api.patch(`/users/${auth.user?.id}`, {
       first_name: firstName,
       last_name: lastName,
       email,
     })
-
     location.reload()
+  }
+
+  useEffect(() => {
+    if(auth.user){
+      setValue('firstName', auth.user.first_name)
+      setValue('lastName', auth.user.last_name)
+      setValue('email', auth.user.email)
+    }
+  }, [auth.user])
+
+  const handleLogout = async () => {
+    await auth.logout()
+    navigate('/')
   }
 
   return (
@@ -58,12 +77,13 @@ export function ViewProfile() {
               <strong>Email:</strong> {auth.user?.email}
             </span>
           </ContainerPhoto>
+
           <ul>
             <li className="delete">
               <Trash size={24} />
               <span>Excluir</span>
             </li>
-            <li>
+            <li className="logout" onClick={handleLogout}>
               <SignOut size={24} />
               <span>Sair</span>
             </li>
@@ -78,7 +98,6 @@ export function ViewProfile() {
           <form action="" onSubmit={handleSubmit(handleUpdate)}>
             <ContainerFormUpdate>
               <h1>Informações Pessoais</h1>
-              
                 <div className="container-name">
                   <div className="container-label">
                     <label htmlFor="">Nome</label>
@@ -87,7 +106,6 @@ export function ViewProfile() {
                         icon="user"
                         outlineColor={firstNameError ? '#fc6647' : '#00B8F0'}
                         borderColor={firstNameError ? '#fc6647' : '#00B8F0'}
-                        value={auth.user?.first_name}
                         registerProps={register('firstName')}
                       />
                       <ErrorMessage menssage={firstNameError} />
@@ -100,7 +118,6 @@ export function ViewProfile() {
                         icon="user"
                         outlineColor={lastNameError ? '#fc6647' : '#00B8F0'}
                         borderColor={lastNameError ? '#fc6647' : '#00B8F0'}
-                        value={auth.user?.last_name}
                         registerProps={register('lastName')}
                       />
                       <ErrorMessage menssage={lastNameError} />
@@ -114,15 +131,12 @@ export function ViewProfile() {
                     icon="email"
                     outlineColor={emailError ? '#fc6647' : '#00B8F0'}
                     borderColor={emailError ? '#fc6647' : '#00B8F0'}
-                    value={auth.user?.email}
                     registerProps={register('email')}
                   />
                   <ErrorMessage menssage={emailError} />
                 </ContainerInputError>
             </ContainerFormUpdate>
-            <div className="container-button">
-              <Button height="2rem" width="6rem" color="#00B8F0" text="Salvar" type="submit" />
-            </div>
+            <Button height="2rem" width="6rem" color="#00B8F0" text="Salvar" type="submit" />
           </form>
         </ContainerCardInfo>
       </div>
