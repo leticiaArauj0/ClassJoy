@@ -1,7 +1,6 @@
 import { GoogleButton } from '../../components/GoogleButton'
 import { Aside } from '../../components/Aside'
 import { Or } from './styles/Or'
-import { Terms } from './styles/Terms'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Inputs/Input'
@@ -136,10 +135,7 @@ export function RegisterAsTeacher() {
                   <ErrorMessage menssage={confirmPasswordError} />
                 </ContainerInputError>
               </div>
-              <Terms>
-                <input type="checkbox" />
-                Li e concordo com os termos de condição
-              </Terms>
+
               <Button
                 text="Criar conta"
                 color="#77BF0B"

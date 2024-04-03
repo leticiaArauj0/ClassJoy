@@ -19,5 +19,6 @@ export const ContainerForm = styled.div`
   .container-password {
     display: flex;
     gap: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 `

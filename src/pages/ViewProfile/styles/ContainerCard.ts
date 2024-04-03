@@ -28,12 +28,21 @@ export const ContainerCardPerfil = styled(ContainerCard)`
     cursor: pointer;
   }
 
+  li:hover {
+    opacity: 0.7;
+  }
+
   .logout svg {
     rotate: 180deg;
   }
 
   .delete {
     color: ${(props) => props.theme['red-600']};
+  }
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.black};
   }
 `
 

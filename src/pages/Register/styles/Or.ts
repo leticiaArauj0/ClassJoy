@@ -6,7 +6,7 @@ export const Or = styled.div`
   justify-content: center;
   gap: 0.5rem;
 
-  margin: 0.3rem;
+  margin: 1rem 0;
 
   .line {
     width: 150px;

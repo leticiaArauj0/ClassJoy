@@ -7,6 +7,7 @@ interface ButtonProps {
   height: string
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   type?: 'submit' | 'reset' | 'button' | undefined
+  disabled?: boolean
 }
 
 export function Button({
@@ -16,6 +17,7 @@ export function Button({
   height,
   onClick,
   type,
+  disabled,
 }: ButtonProps) {
   return (
     <ContainerButton
@@ -24,6 +26,7 @@ export function Button({
       height={height}
       onClick={onClick}
       type={type}
+      disabled={disabled}
     >
       {text}
     </ContainerButton>

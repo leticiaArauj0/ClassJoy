@@ -16,14 +16,14 @@ import { api } from '../../lib/axios'
 import { updateFormValidationSchema } from '../../shared/validation/schemas/updateFormValidationSchema'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
 import { ErrorMessage } from '../../components/ErrorMessage/'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export type FormUpdate = zod.infer<typeof updateFormValidationSchema>
 
 export function ViewProfile() {
   const auth = useContext(AuthContext)
   const navigate = useNavigate()
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormUpdate>({
+  const { register, handleSubmit, formState: { errors, isDirty }, setValue } = useForm<FormUpdate>({
     resolver: zodResolver(updateFormValidationSchema),
     defaultValues: {
       firstName: auth.user?.first_name,
@@ -87,10 +87,12 @@ export function ViewProfile() {
               <SignOut size={24} />
               <span>Sair</span>
             </li>
-            <li>
-              <LockKey size={24} />
-              <span>Mudar senha</span>
-            </li>
+            <NavLink to="/recuperar-senha">
+              <li>
+                  <LockKey size={24} />
+                  <span>Mudar senha</span>
+              </li>
+            </NavLink>
           </ul>
         </ContainerCardPerfil>
 
@@ -136,7 +138,7 @@ export function ViewProfile() {
                   <ErrorMessage menssage={emailError} />
                 </ContainerInputError>
             </ContainerFormUpdate>
-            <Button height="2rem" width="6rem" color="#00B8F0" text="Salvar" type="submit" />
+            <Button height="2rem" width="6rem" color="#00B8F0" text="Salvar" type="submit" disabled={!isDirty} />
           </form>
         </ContainerCardInfo>
       </div>
