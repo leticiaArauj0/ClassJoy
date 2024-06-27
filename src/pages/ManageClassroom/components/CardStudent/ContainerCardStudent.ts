@@ -18,12 +18,13 @@ export const ContainerCardStudent = styled.div`
     position: relative;
     cursor: pointer;
 
-    img {
+    .profile {
         height: 4rem;
         width: 4rem;
+        border-radius: 100px;
     }
 
-    svg {
+    .dots {
         position: absolute;
         right: 0;
         top: 4px;

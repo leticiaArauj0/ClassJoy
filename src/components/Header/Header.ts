@@ -19,4 +19,8 @@ export const ContainerHeader = styled.header`
     align-items: center;
     gap: 0.5rem;
   }
+
+  a {
+    color: ${(props) => props.theme.black};
+  }
 `

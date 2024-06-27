@@ -51,7 +51,7 @@ export function ForgetPassword() {
                   borderColor={emailError ? '#fc6647' : 'transparent'}
                   registerProps={register('email')}
                 />
-                <ErrorMessage menssage={emailError} />
+                <ErrorMessage message={emailError} />
               </ContainerInputError>
               <Button
                 text="Recuperar Senha"

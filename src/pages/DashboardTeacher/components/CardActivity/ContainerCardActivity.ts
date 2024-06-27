@@ -25,10 +25,8 @@ export const ContainerCardActivity = styled.div<{ background: string }>`
         padding: 0.5rem;
     }
 
-    strong {
-        font-size: 1.3rem;
+    h2 {
         font-weight: 600;
-        margin-bottom: 0.5rem;
     }
 
     @media (max-width: 1024px) {

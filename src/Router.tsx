@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { ChooseProfile } from './pages/ChooseProfile'
-import { RegisterAsTeacher } from './pages/Register'
+import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import { ForgetPassword } from './pages/ForgotPassword'
 import { ResetPassword } from './pages/ResetPassword'
@@ -13,13 +13,23 @@ import { Classroom } from './pages/Classroom'
 import { ManageClassroom } from './pages/ManageClassroom'
 import { Students } from './pages/Students'
 import { ManageLayout } from './layouts/ManageLayout'
+import { ClassroomProvider } from './contexts/classroom/ClassroomContext'
+import { StudentProvider } from './contexts/student/StudentContext'
+import { IdClassroomProvider } from './contexts/idClassroom/IdClassroomContext'
+import { DiaryStudentTeacher } from './pages/DiaryStudentTeacher'
+import { StudentSkills } from './pages/StudentSkills'
+import { ParentsLayout } from './layouts/ParentsLayout'
+import { DashboardParents } from './pages/DashboardParents'
+import { DiaryStudentParents } from './pages/DiaryStudentParents'
+import { StudentSkillParents } from './pages/StudentSkillParents'
+import { DiaryProvider } from './contexts/diary/DiaryContext'
 
 export function Router() {
   return (
     <Routes>
       <Route path="/" element={<ChooseProfile />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/cadastrar" element={<RegisterAsTeacher />} />
+      <Route path="/cadastrar" element={<Register />} />
       <Route path="/recuperar-senha" element={<ForgetPassword />} />
       <Route path="/redefinir-senha" element={<ResetPassword />} />
 
@@ -31,24 +41,71 @@ export function Router() {
           </RequiredAuth>
         }
       >
-        <Route path="consultar-perfil" element={<ViewProfile />} /> 
-        <Route path="dashboard-professor" element={<DashboardTeacher />} />
-        <Route path="classroom" element={<Classroom />} />
-        <Route path="students" element={<Students />} />
-        <Route path="manage-students" element={<ManageStudents />} />
-        <Route path="classroom/manage-classroom" element={<ManageClassroom />} />
+        <Route path="consultar-perfil" element={<ViewProfile />} />
+        <Route path="dashboard-professor" element={
+          <ClassroomProvider>
+            <StudentProvider>
+              <DashboardTeacher />
+            </StudentProvider>
+          </ClassroomProvider>
+          } 
+        />
+        <Route path="classroom" element={<ClassroomProvider><Classroom /></ClassroomProvider>} />
+        <Route path="students" element={
+            <ClassroomProvider>
+              <StudentProvider>
+                <Students />
+              </StudentProvider>
+            </ClassroomProvider>
+          } 
+        />
+        <Route path="manage-students" element={<ManageStudents />} />       
       </Route>
 
-      <Route 
-        path="/manage" 
+      <Route
+        path="/user-parents"
         element={
           <RequiredAuth>
-            <ManageLayout />
+            <ParentsLayout />
+          </RequiredAuth>
+        }
+      >
+        <Route path="consultar-perfil" element={<ViewProfile />} />    
+        <Route path="dashboard-parents" element={
+          <ClassroomProvider>
+            <StudentProvider>
+              <DiaryProvider>
+                <DashboardParents />
+              </DiaryProvider>
+            </StudentProvider>
+          </ClassroomProvider>} 
+        />
+        <Route path="diary-parents" element={
+          <StudentProvider>
+            <DiaryProvider>
+              <DiaryStudentParents />
+            </DiaryProvider>
+          </StudentProvider>
+          } />
+        <Route path="skills-parents" element={<StudentSkillParents />} />
+      </Route>
+
+      <Route
+        path="/manage"
+        element={
+          <RequiredAuth>
+            <IdClassroomProvider>
+              <StudentProvider>
+                <ManageLayout />
+              </StudentProvider>
+            </IdClassroomProvider>
           </RequiredAuth>
         }>
-        <Route path="students" element={<ManageStudents />} />
-        <Route path="classroom" element={<ManageClassroom />} />
+        <Route path="students/:id" element={<ManageStudents />} />
+        <Route path="classroom/:id" element={<ManageClassroom />} />
+        <Route path="diary/:id" element={<DiaryProvider><DiaryStudentTeacher /></DiaryProvider>} />
+        <Route path="student-skills/:id" element={<StudentSkills />} />
       </Route>
-    </Routes>
+    </Routes>  
   )
 }

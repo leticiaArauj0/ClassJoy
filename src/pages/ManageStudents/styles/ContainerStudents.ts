@@ -18,5 +18,6 @@ export const ContainerStudents = styled.div`
         width: 95%;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 `

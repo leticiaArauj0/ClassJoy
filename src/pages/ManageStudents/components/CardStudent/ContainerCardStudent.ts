@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ContainerCardStudent = styled.div`
+export const ContainerCardStudent = styled.span`
     height: 7rem;
 
     display: flex;
@@ -9,14 +9,22 @@ export const ContainerCardStudent = styled.div`
     gap: 2rem;
 
     padding: 0.5rem 1rem;
-
+    text-align: left;
+    
     background-color: ${(props) => props.theme['orange-400']};
     border-radius: 15px;
+    border: none;
 
+    position: relative;
     cursor: pointer;
 
+    &:hover {
+        opacity: 0.8;
+        transition: 0.3s ease all;
+    }
+
     img {
-        height: 100%;
+        height: 5rem;
         border-radius: 100px;
     }
 

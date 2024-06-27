@@ -5,4 +5,7 @@ export const ContainerStudent = styled.div`
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    overflow-x: auto;
+    overflow-y: hidden;
 `

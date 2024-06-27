@@ -44,7 +44,7 @@ export function ResetPassword() {
                 borderColor={passwordError ? '#fc6647' : 'transparent'}
                 registerProps={register('password')}
               />
-              <ErrorMessage menssage={passwordError} />
+              <ErrorMessage message={passwordError} />
             </ContainerInputError>
             <ContainerInputError margin={confirmPasswordError ? '0' : '0.5rem'}>
               <InputPassword
@@ -55,7 +55,7 @@ export function ResetPassword() {
                 borderColor={confirmPasswordError ? '#fc6647' : 'transparent'}
                 registerProps={register('confirmPassword')}
               />
-              <ErrorMessage menssage={confirmPasswordError} />
+              <ErrorMessage message={confirmPasswordError} />
             </ContainerInputError>
             <Button
               text="Redefinir Senha"

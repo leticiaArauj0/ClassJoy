@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ContainerAddCircleButton = styled.button`
+export const ContainerAddCircleButton = styled.button<{position?: string, bottom?: string, right?: string}>`
     height: 3.5rem;
     width: 3.5rem;
 
@@ -14,9 +14,9 @@ export const ContainerAddCircleButton = styled.button`
     border: none;
     border-radius: 50px;
 
-    position: fixed;
-    bottom: 2rem;
-    right: 3rem;
+    position: ${(props) => props.position};
+    bottom: ${(props) => props.bottom};
+    right: ${(props) => props.right};
 
     cursor: pointer;
 

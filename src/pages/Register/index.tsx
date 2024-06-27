@@ -16,15 +16,12 @@ import { ErrorMessage } from '../../components/ErrorMessage'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
 import { registerFormValidationSchema } from '../../shared/validation/schemas/registerFormValidationSchema'
 import * as zod from 'zod'
-import { useContext } from 'react'
-import { AuthContext } from '../../contexts/auth/AuthContext'
 
 export type FormRegister = zod.infer<typeof registerFormValidationSchema>
 
-export function RegisterAsTeacher() {
+export function Register() {
   const location = useLocation()
   const role = new URLSearchParams(location.search).get('role')
-  const auth = useContext(AuthContext)
   const navigate = useNavigate()
 
   const { register, handleSubmit, formState } = useForm<FormRegister>({
@@ -49,12 +46,7 @@ export function RegisterAsTeacher() {
       password,
       role,
     })
-
-    const isLogged = await auth.login(email, password)
-
-    if (isLogged) {
-      navigate('/user/dashboard-professor')
-    }
+    navigate('/')
   }
 
   return (
@@ -87,7 +79,7 @@ export function RegisterAsTeacher() {
                   borderColor={firstNameError ? '#fc6647' : 'transparent'}
                   registerProps={register('firstName')}
                 />
-                <ErrorMessage menssage={firstNameError} />
+                <ErrorMessage message={firstNameError} />
               </ContainerInputError>
               <ContainerInputError margin={lastNameError ? '0' : '0.5rem'}>
                 <Input
@@ -97,7 +89,7 @@ export function RegisterAsTeacher() {
                   borderColor={lastNameError ? '#fc6647' : 'transparent'}
                   registerProps={register('lastName')}
                 />
-                <ErrorMessage menssage={lastNameError} />
+                <ErrorMessage message={lastNameError} />
               </ContainerInputError>
               <ContainerInputError margin={emailError ? '0' : '0.5rem'}>
                 <Input
@@ -107,32 +99,32 @@ export function RegisterAsTeacher() {
                   borderColor={emailError ? '#fc6647' : 'transparent'} 
                   registerProps={register('email')}
                 />
-                <ErrorMessage menssage={emailError} />
+                <ErrorMessage message={emailError} />
               </ContainerInputError>
               <div className="container-password">
                 <ContainerInputError margin={passwordError ? '0' : '0.5rem'}>
                   <InputPassword
-                    width="10.75rem"
+                    width="11.25rem"
                     position="6rem"
                     placeholder="Senha"
                     registerProps={register('password')}
                     outlineColor={passwordError ? '#fc6647' : '#966BF2'}
                     borderColor={passwordError ? '#fc6647' : 'transparent'}
                   />
-                  <ErrorMessage menssage={passwordError} />
+                  <ErrorMessage message={passwordError} />
                 </ContainerInputError>
                 <ContainerInputError
                   margin={confirmPasswordError ? '0' : '0.5rem'}
                 >
                   <InputPassword
-                    width="10.75rem"
+                    width="11.25rem"
                     position="6rem"
                     placeholder="Confirmar"
                     registerProps={register('confirmPassword')}
                     outlineColor={confirmPasswordError ? '#fc6647' : '#966BF2'}
                     borderColor={confirmPasswordError ? '#fc6647' : 'transparent'}
                   />
-                  <ErrorMessage menssage={confirmPasswordError} />
+                  <ErrorMessage message={confirmPasswordError} />
                 </ContainerInputError>
               </div>
 

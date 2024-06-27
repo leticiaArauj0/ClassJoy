@@ -33,7 +33,7 @@ export const Navbar = styled.div`
     color: ${(props) => props.theme['purple-700']};
   }
 
-  .home, .classroom, .students {
+  .home, .classroom, .students, .diary, .skill, .home-parents, .diary-parents {
     background-color: ${(props) => props.theme.white};
     color: ${(props) => props.theme['purple-700']};
   }

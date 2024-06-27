@@ -1,24 +1,24 @@
-import { DotsThreeVertical } from "phosphor-react";
 import { ContainerCardStudent } from "./ContainerCardStudent";
 
 interface CardStudentProps {
-    cod: string
-    name: string
-    age: number
+    id: number,
+    name: string,
+    age: number,
+    onClick?: React.MouseEventHandler<HTMLSpanElement> | undefined
 }
 
-export function CardStudent({ cod, name, age }: CardStudentProps) {
+export function CardStudent({ name, age, id, onClick }: CardStudentProps) {
+    
     return (
-        <ContainerCardStudent>
+        <ContainerCardStudent onClick={onClick}>
             <div className="container-student-info">
-                <img src="\src\assets\student.png" alt="" />
+                <img src="https://i.pinimg.com/564x/d1/51/62/d15162b27cd9712860b90abe58cb60e7.jpg" alt="" />
                 <div className="student-info">
-                    <span>Código: {cod}</span>
+                    <span>Código: {id}</span>
                     <span>Nome: {name}</span>
                     <span>Idade: {age}</span>
                 </div>
             </div>
-            <DotsThreeVertical size={40} color="#ffffff" />
         </ContainerCardStudent>
     )
 }

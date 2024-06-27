@@ -27,7 +27,7 @@ export function Login() {
   const auth = useContext(AuthContext)
   const navigate = useNavigate()
 
-  const { register, handleSubmit, formState } = useForm<FormLogin>({
+  const { register, handleSubmit, setError, formState } = useForm<FormLogin>({
     resolver: zodResolver(loginFormValidationSchema),
   })
   const emailError = formState.errors.email?.message
@@ -36,8 +36,12 @@ export function Login() {
   async function handleLogin(data: FormLogin) {
     const isLogged = await auth.login(data.email, data.password)
 
-    if (isLogged) {
+    if(isLogged && auth.user?.role == 'teacher') {
       navigate('/user/dashboard-professor')
+    } else if(isLogged && auth.user?.role == 'parents') {
+      navigate('/user-parents/dashboard-parents')
+    } else {
+      setError("password", { type: "manual", message: "Email e/ou senha incorreto" })
     }
   }
 
@@ -55,6 +59,7 @@ export function Login() {
           <h1>Login</h1>
           <form onSubmit={handleSubmit(handleLogin)} action="">
             <ContainerForm>
+
               <ContainerInputError margin={emailError ? '0' : '0.5rem'}>
                 <Input
                   placeholder="Email"
@@ -63,30 +68,33 @@ export function Login() {
                   borderColor={emailError ? '#fc6647' : 'transparent'}
                   registerProps={register('email')}
                 />
-                <ErrorMessage menssage={emailError} />
+                <ErrorMessage message={emailError} />
               </ContainerInputError>
+
               <ContainerInputError margin={passwordError ? '0' : '0.5rem'}>
                 <InputPassword
                   width="22rem"
-                  position="16.5rem"
+                  position="17.5rem"
                   placeholder="Senha"
                   outlineColor={passwordError ? '#fc6647' : '#966BF2'}
                   borderColor={passwordError ? '#fc6647' : 'transparent'}
                   registerProps={register('password')}
                 />
-                <ErrorMessage menssage={passwordError} />
+                <ErrorMessage message={passwordError} />
               </ContainerInputError>
             </ContainerForm>
+
             <ContainerForgetPassword>
               <NavLink to="/recuperar-senha">
                 <strong>Esqueceu sua senha?</strong>
               </NavLink>
             </ContainerForgetPassword>
+
             <ContainerButton>
               <div>
                 <Button
                   text="Entrar"
-                  width="10.7rem"
+                  width="11.2rem"
                   height="2.3rem"
                   color="#966BF2"
                   type="submit"
@@ -94,7 +102,7 @@ export function Login() {
                 <NavLink to={`/cadastrar?role=${role}`}>
                   <Button
                     text="Criar uma conta"
-                    width="10.7rem"
+                    width="11.2rem"
                     height="2.3rem"
                     color="#77BF0B"
                   />

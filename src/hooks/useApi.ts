@@ -11,6 +11,8 @@ export const useApi = () => ({
     const response = await api.post('auth/login', {
       email,
       password,
+    }).catch(function () {
+      return {data: false}
     })
     return response.data
   },

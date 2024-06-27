@@ -16,7 +16,7 @@ export const ContainerGoogleButton = styled.button`
   border-radius: 14rem;
 
   height: 2.2rem;
-  width: 22rem;
+  width: 23rem;
 
   cursor: pointer;
 

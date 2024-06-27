@@ -1,24 +1,25 @@
-import { ChalkboardTeacher, Student, UsersThree, Notebook } from "phosphor-react";
+import { Student, UsersThree, Calendar, Chat } from "phosphor-react";
 import { ContainerCardInfo } from "./styles/ContainerCardInfo";
 
 interface CardInfoProps {
     color: string
     icon: string
     text: string
-    number: number
+    parents?: number,
+    students?: number
 }
 
-export function CardInfo({ color, icon, text, number }: CardInfoProps) {
+export function CardInfo({ color, icon, text, students, parents }: CardInfoProps) {
     let symbol
 
-    if (icon === 'classroom') {
-        symbol = <ChalkboardTeacher size={50} color={color} />
+    if (icon === 'calendar') {
+        symbol = <Calendar size={50} color={color} />
     } else if (icon === 'student') {
         symbol = <Student size={50} color={color} />
     } else if (icon === 'parents') {
         symbol = <UsersThree size={50} color={color} />
-    } else if (icon === 'activity') {
-        symbol = <Notebook size={50} color={color} />
+    } else if (icon === 'chat') {
+        symbol = <Chat size={50} color={color} />
     } 
 
     return(
@@ -27,7 +28,8 @@ export function CardInfo({ color, icon, text, number }: CardInfoProps) {
             {symbol}
             <div className="info">
                 <span>{text}</span>
-                <strong>{number}</strong>
+                <strong>{parents}</strong>
+                <strong>{students}</strong>
             </div>
         </ContainerCardInfo>
     )

@@ -12,7 +12,6 @@ import { Photo } from '../../components/Photo'
 import * as zod from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { api } from '../../lib/axios'
 import { updateFormValidationSchema } from '../../shared/validation/schemas/updateFormValidationSchema'
 import { ContainerInputError } from '../../components/Inputs/styles/ContainerInputError'
 import { ErrorMessage } from '../../components/ErrorMessage/'
@@ -21,14 +20,14 @@ import { NavLink, useNavigate } from 'react-router-dom'
 export type FormUpdate = zod.infer<typeof updateFormValidationSchema>
 
 export function ViewProfile() {
-  const auth = useContext(AuthContext)
+  const { editUser, logout, user } = useContext(AuthContext)
   const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors, isDirty }, setValue } = useForm<FormUpdate>({
     resolver: zodResolver(updateFormValidationSchema),
     defaultValues: {
-      firstName: auth.user?.first_name,
-      lastName: auth.user?.last_name,
-      email: auth.user?.email
+      firstName: user?.first_name,
+      lastName: user?.last_name,
+      email: user?.email
     }
   })
   const firstNameError = errors.firstName?.message
@@ -40,41 +39,42 @@ export function ViewProfile() {
     lastName,
     email 
   }: FormUpdate) {
-    await api.patch(`/users/${auth.user?.id}`, {
-      first_name: firstName,
-      last_name: lastName,
-      email,
-    })
-    location.reload()
+    await editUser({ firstName, lastName, email })
   }
 
   useEffect(() => {
-    if(auth.user){
-      setValue('firstName', auth.user.first_name)
-      setValue('lastName', auth.user.last_name)
-      setValue('email', auth.user.email)
+    if(user){
+      setValue('firstName', user.first_name)
+      setValue('lastName', user.last_name)
+      setValue('email', user.email)
     }
-  }, [auth.user])
+  }, [user])
 
   const handleLogout = async () => {
-    await auth.logout()
+    await logout()
     navigate('/')
+  }
+
+  let role
+  if(user?.role == 'teacher') {
+    role = true
   }
 
   return (
     <MainViewProfile>
       <div className="background"></div>
-      <Arrow navLink="/user/dashboard-professor" />
+      {role ? <Arrow navLink="/user/dashboard-professor" /> : <Arrow navLink="/user-parents/dashboard-parents" />}
+      
 
       <div className="container">
         <ContainerCardPerfil width="30%">
           <ContainerPhoto>
             <Photo height="6.5rem" camera="flex" imgUrl="https://www.gov.br/cdn/sso-status-bar/src/image/user.png" border='2px solid #00B8F0' />
             <strong>
-              {auth.user?.first_name} {auth.user?.last_name}
+              {user?.first_name} {user?.last_name}
             </strong>
             <span>
-              <strong>Email:</strong> {auth.user?.email}
+              <strong>Email:</strong> {user?.email}
             </span>
           </ContainerPhoto>
 
@@ -110,7 +110,7 @@ export function ViewProfile() {
                         borderColor={firstNameError ? '#fc6647' : '#00B8F0'}
                         registerProps={register('firstName')}
                       />
-                      <ErrorMessage menssage={firstNameError} />
+                      <ErrorMessage message={firstNameError} />
                     </ContainerInputError>
                   </div>
                   <div className="container-label">
@@ -122,7 +122,7 @@ export function ViewProfile() {
                         borderColor={lastNameError ? '#fc6647' : '#00B8F0'}
                         registerProps={register('lastName')}
                       />
-                      <ErrorMessage menssage={lastNameError} />
+                      <ErrorMessage message={lastNameError} />
                     </ContainerInputError>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ export function ViewProfile() {
                     borderColor={emailError ? '#fc6647' : '#00B8F0'}
                     registerProps={register('email')}
                   />
-                  <ErrorMessage menssage={emailError} />
+                  <ErrorMessage message={emailError} />
                 </ContainerInputError>
             </ContainerFormUpdate>
             <Button height="2rem" width="6rem" color="#00B8F0" text="Salvar" type="submit" disabled={!isDirty} />

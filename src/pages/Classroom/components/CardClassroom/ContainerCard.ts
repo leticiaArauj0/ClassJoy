@@ -30,7 +30,8 @@ export const ContainerCard = styled(Card)`
     }
 
     h2 {
-        margin-top: 9rem;
+        padding-top: 9rem;
+        padding-bottom: 4.25rem;
         font-weight: 600;
     }
 
@@ -53,6 +54,15 @@ export const ContainerCard = styled(Card)`
         align-items: flex-end;
 
         gap: 0.5rem;
+
+        span, .delete {
+            
+            height: 2rem;
+        }
+
+        .delete {
+            color: ${(props) => props.theme['red-400']};
+        }
     }
 
     svg:hover {

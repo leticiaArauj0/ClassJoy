@@ -8,9 +8,30 @@ export const ContainerCardActivity = styled(Card)`
         margin-bottom: 1rem;
     }
 
-    h3 {
-        font-weight: 600;
-        margin-top: 1rem;
+    .planning {
+        width: 100%;
+        height: 8rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        background-image: url("/src/pages/DashboardTeacher/assets/planning.png");
+        background-size: cover;
+
+        border-radius: 20px;
+        margin: 0.5rem 0;
+
+        cursor: pointer;
+
+        h1 {
+            font-size: 2rem;
+            color: #131313;
+            font-family: 'Signika';
+            font-weight: 600;
+            padding-left: 10rem;
+        }      
     }
 `
 

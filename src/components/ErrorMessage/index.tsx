@@ -1,13 +1,13 @@
 import { ContainerErrorMessage } from './styles'
 
 interface ErrorMenssageProps {
-  menssage: string | undefined
+  message: string | undefined
 }
 
-export function ErrorMessage({ menssage }: ErrorMenssageProps) {
+export function ErrorMessage({ message }: ErrorMenssageProps) {
   return (
-    <ContainerErrorMessage display={menssage ? 'inline' : 'none'}>
-      {menssage}
+    <ContainerErrorMessage display={message ? 'inline' : 'none'}>
+      {message}
     </ContainerErrorMessage>
   )
 }

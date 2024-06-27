@@ -7,7 +7,7 @@ export const ContainerForm = styled.div`
   align-items: center;
   flex-direction: column;
 
-  width: 22rem;
+  width: 23rem;
 
    position: relative;
 
